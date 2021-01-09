@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+<body>
+<div align="center" class="container">
+<h2>EMPLOYEE LIST</h2>
+<button class="btn btn-primary pull-right" onclick="window.location.href='/new'">Add Employee</button>
+<div style="height: 60px;">
+
+</div>
+<table class="table">
+<tr>
+   <th>Employee Id</th>
+   <th>First Name</th>
+   <th>Last Name</th>
+	<th>Address</th>
+	<th>State</th>
+	<th>Country</th>
+	<th>Zip Code</th>
+	<th>Department</th>
+</tr>
+<tr th:each="employee: ${employeelist}">
+<td th:text="${employee.id}"></td>
+<td th:text="${employee.firstName}"></td>
+<td th:text="${employee.lastName}"></td>
+<td th:text="${employee.address}"></td>
+<td th:text="${employee.state}"></td>
+<td th:text="${employee.country}"></td>
+<td th:text="${employee.zipCode}"></td>
+<td th:text="${employee.department}"></td>
+<td>
+ <a th:href="@{/edit/{id}(id = ${employee.id})}"><i class="fa fa-edit" style="font-size:25px"></i></a>
+</td>
+<td>
+<a th:href="@{/delete/{id}(id = ${employee.id})}"><i class="fa fa-remove" style="font-size:25px"></i></a>
+</td>
+</tr>
+</table>
+</div>
+</body>
+</html>

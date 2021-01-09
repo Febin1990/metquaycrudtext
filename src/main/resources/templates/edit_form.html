@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+</head>
+<body>
+<div align="center" class="container">
+<h2>Edit Employee</h2>
+<form action="#" th:action="@{/update/{id}(id=${employee.id})}" th:object="${employee}" method="post">
+<table class="table">
+<tr>
+<td>First Name</td>
+<td><input type="text" th:field="*{firstName}"></td>
+</tr>
+<tr>
+<td>Last Name</td>
+<td><input type="text" th:field="*{lastName}"></td>
+</tr>
+<tr>
+<td>Address</td>
+<td><input type="text" th:field="*{address}"></td>
+</tr>
+<tr>
+<td>State</td>
+<td><input type="text" th:field="*{state}"></td>
+</tr>
+<tr>
+<td>Country</td>
+<td><input type="text" th:field="*{country}"></td>
+</tr>
+<tr>
+<td>Zip Code</td>
+<td><input type="text" th:field="*{zipCode}"></td>
+</tr>
+<tr>
+<td>Department</td>
+<td>
+<select th:field="*{department}">
+  <option th:value="'accounting'" th:text="Accounting"></option>
+  <option th:value="'technical'" th:text="Technical"></option>
+  <option th:value="'logistics'" th:text="Logistics"></option>
+</select>
+</tr>
+<tr>
+<td><input type="submit" class="btn btn-primary" value="Save"></td>
+</tr>
+</table>
+</form>
+</div>
+</body>
+</html>
